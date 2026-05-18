@@ -1,0 +1,18 @@
+# Build/temp artifacts from base64 inlining workflow
+assets/logo-base64.txt
+assets/logo-b64-small.txt
+assets/logo-web.png
+assets/logo-web.jpg
+
+# Editor/OS junk
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+
+# Node (if we ever add a build step)
+node_modules/
+dist/
+.cache/

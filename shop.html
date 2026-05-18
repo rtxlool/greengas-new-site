@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Catalog — GreenGas Hemp</title>
+<meta name="description" content="Shop the full GreenGas catalog — reserve flower, indoor exotic, hash rosin, live resin, house-made vape carts, pre rolls, edibles. Lab tested. No mids." />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper:   #F2EDDD;
+    --paper-2: #E6DFC6;
+    --ink:     #0D0F0B;
+    --ink-2:   #1A1D16;
+    --olive:   #4A6825;
+    --olive-d: #2D4316;
+    --olive-l: #6B8C3A;
+    --gold:    #C19D57;
+    --gold-d:  #9C7C3F;
+    --rust:    #A24A22;
+    --bone:    #E8E2CC;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(at 12% 18%, rgba(74,104,37,0.06) 0, transparent 50%),
+      radial-gradient(at 85% 75%, rgba(193,157,87,0.05) 0, transparent 50%);
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  .anton { font-family: 'Anton', sans-serif; font-weight: 400; letter-spacing: -0.005em; line-height: 0.88; text-transform: uppercase; }
+  .script { font-family: 'Caveat', cursive; font-weight: 700; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  .kicker { font-family: 'Archivo', sans-serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 700; color: var(--olive); }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+  @media (min-width: 768px){ .container { padding: 0 56px; } }
+
+  /* PROMO STRIP */
+  .promo { background: var(--ink); color: var(--paper); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; overflow: hidden; }
+  .promo-track { display: flex; gap: 48px; padding: 11px 0; white-space: nowrap; animation: marquee 42s linear infinite; }
+  .promo-track span { display: inline-flex; align-items: center; gap: 14px; }
+  .promo-track .star { color: var(--gold); }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* HEADER */
+  header.main { position: sticky; top: 0; z-index: 40; background: rgba(13,15,11,0.97); color: var(--paper); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  header.main .row { height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .logo { display: flex; align-items: center; gap: 14px; font-family: 'Anton', sans-serif; font-size: 26px; letter-spacing: 0.01em; text-transform: uppercase; color: var(--paper); }
+  .logo .tag { display: none; font-family: 'Caveat', cursive; font-weight: 700; font-size: 16px; color: var(--gold); transform: rotate(-3deg); letter-spacing: 0; text-transform: none; margin-left: 4px; }
+  @media (min-width: 900px){ .logo .tag { display: inline; } }
+  .logo-img { height: 48px; width: auto; display: block; }
+  .logo-img.header { height: 44px; border-radius: 2px; }
+  .logo-img.crest { height: 96px; margin: 0 auto 20px; }
+  .logo-img.footer { height: 60px; border-radius: 2px; }
+  nav.primary { display: none; gap: 32px; }
+  @media (min-width: 900px){ nav.primary { display: flex; } }
+  nav.primary a { font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--paper); padding: 4px 0; position: relative; }
+  nav.primary a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 240ms ease; }
+  nav.primary a:hover::after, nav.primary a.active::after { transform: scaleX(1); }
+  .icons { display: flex; align-items: center; gap: 8px; }
+  .icons button, .icons a { background: transparent; border: 0; color: var(--paper); display: inline-flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 4px; font-family: 'Archivo', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .icons a:hover, .icons button:hover { background: rgba(255,255,255,0.06); }
+  .cart-btn { border: 1px solid rgba(255,255,255,0.16) !important; }
+  .cart-count { background: var(--gold); color: var(--ink); padding: 1px 7px; border-radius: 2px; font-size: 11px; font-weight: 800; }
+
+  /* BUTTONS */
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 26px; font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid transparent; border-radius: 2px; transition: background 180ms ease, color 180ms ease; }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--olive); }
+  .btn-gold { background: var(--gold); color: var(--ink); }
+  .btn-gold:hover { background: var(--ink); color: var(--gold); }
+  .btn-outline-light { background: transparent; color: var(--paper); border-color: var(--paper); }
+  .btn-outline-light:hover { background: var(--paper); color: var(--ink); }
+  .btn-outline-dark { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-outline-dark:hover { background: var(--ink); color: var(--paper); }
+
+  /* SHOP HERO */
+  section.shop-hero {
+    background: var(--ink); color: var(--paper);
+    padding: 80px 0 100px; position: relative; overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .shop-hero-grid { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: end; position: relative; z-index: 2; }
+  @media (min-width: 900px){ .shop-hero-grid { grid-template-columns: 1.6fr 1fr; gap: 60px; } }
+  .shop-hero .kicker { color: var(--gold); }
+  .shop-hero h1 { font-size: clamp(64px, 11vw, 168px); margin: 16px 0 0; }
+  .shop-hero h1 .gold { color: var(--gold); }
+  .shop-hero p.lead { font-size: 17px; line-height: 1.6; color: rgba(242,237,221,0.78); margin: 0; max-width: 420px; }
+  .shop-hero .quickstats { display: flex; gap: 32px; margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .shop-hero .quickstats .n { font-family: 'Anton', sans-serif; font-size: 28px; color: var(--gold); line-height: 1; }
+  .shop-hero .quickstats .l { font-family: 'Archivo', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(242,237,221,0.6); margin-top: 4px; font-weight: 700; }
+
+  /* FILTER BAR */
+  .filterbar {
+    position: sticky; top: 78px; z-index: 30;
+    background: var(--ink); color: var(--paper);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .filterbar-inner {
+    display: flex; gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .filterbar-inner::-webkit-scrollbar { display: none; }
+  .filterbar a {
+    flex-shrink: 0;
+    padding: 18px 22px;
+    font-family: 'Archivo', sans-serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(242,237,221,0.65);
+    border-bottom: 2px solid transparent;
+    transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+    white-space: nowrap;
+  }
+  .filterbar a:hover { color: var(--paper); }
+  .filterbar a.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .filterbar .count {
+    display: inline-block; margin-left: 8px;
+    font-size: 10px; padding: 2px 6px;
+    background: rgba(255,255,255,0.08); color: rgba(242,237,221,0.7);
+    border-radius: 2px; letter-spacing: 0.04em;
+  }
+
+  /* CATEGORY SECTIONS */
+  section.cat-section { padding: 80px 0 40px; scroll-margin-top: 140px; }
+  section.cat-section:first-of-type { padding-top: 60px; }
+  .cat-header {
+    display: grid; grid-template-columns: 1fr; gap: 16px;
+    margin-bottom: 40px; align-items: end;
+  }
+  @media (min-width: 768px){ .cat-header { grid-template-columns: auto 1fr auto; gap: 28px; } }
+  .cat-header .index {
+    font-family: 'Anton', sans-serif; color: var(--olive);
+    font-size: 80px; line-height: 0.85;
+  }
+  .cat-header .title-wrap { }
+  .cat-header h2 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: clamp(40px, 5.5vw, 64px); margin: 8px 0 8px; letter-spacing: 0.005em; line-height: 0.95; }
+  .cat-header .blurb { font-size: 15px; color: rgba(13,15,11,0.6); line-height: 1.55; margin: 0; max-width: 460px; }
+  .cat-header .count-tag {
+    font-family: 'Archivo', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink);
+    background: var(--gold); padding: 8px 14px;
+    border-radius: 2px; white-space: nowrap;
+  }
+
+  /* PRODUCT GRID */
+  .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (min-width: 600px){ .product-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+  @media (min-width: 1024px){ .product-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
+  .product-grid.tier-1 { grid-template-columns: repeat(1, 1fr); }
+  @media (min-width: 600px){ .product-grid.tier-1 { grid-template-columns: repeat(2, 1fr); } }
+
+  .pcard {
+    background: #fff;
+    display: block; position: relative; overflow: hidden;
+    border: 1px solid rgba(13,15,11,0.08);
+    transition: border-color 200ms ease, transform 240ms ease;
+  }
+  .pcard:hover { border-color: var(--olive); transform: translateY(-3px); }
+  .pcard .ph { aspect-ratio: 1; overflow: hidden; background: var(--paper-2); position: relative; }
+  .pcard .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform 800ms ease; }
+  .pcard:hover .ph img { transform: scale(1.05); }
+  .pcard .stock {
+    position: absolute; top: 10px; left: 10px;
+    background: var(--olive); color: var(--paper);
+    padding: 5px 10px;
+    font-family: 'Archivo', sans-serif; font-size: 10px; font-weight: 800;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .pcard .body { padding: 18px 18px 20px; }
+  .pcard .cat { font-family: 'Archivo', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--olive); }
+  .pcard h4 { font-family: 'Anton', sans-serif; font-size: 22px; letter-spacing: 0.01em; text-transform: uppercase; margin: 10px 0 6px; line-height: 1.05; }
+  .pcard .strain { font-size: 12px; color: rgba(13,15,11,0.55); margin: 0 0 18px; letter-spacing: 0.02em; }
+  .pcard .foot { display: flex; align-items: center; justify-content: space-between; }
+  .pcard .price { font-family: 'Anton', sans-serif; font-size: 24px; color: var(--ink); letter-spacing: 0.02em; }
+  .pcard .add {
+    font-family: 'Archivo', sans-serif; font-size: 11px; font-weight: 800;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 10px 14px;
+    border: 1px solid var(--ink); color: var(--ink);
+    background: transparent;
+    transition: background 180ms ease, color 180ms ease;
+  }
+  .pcard:hover .add { background: var(--ink); color: var(--paper); }
+
+  /* SOLD OUT VARIANT */
+  .pcard.sold-out { opacity: 0.85; }
+  .pcard.sold-out:hover { border-color: rgba(13,15,11,0.18); transform: none; }
+  .pcard.sold-out .ph img { filter: grayscale(60%) brightness(0.95); }
+  .pcard.sold-out .stock { background: rgba(13,15,11,0.78); color: var(--paper); }
+  .pcard.sold-out .price { color: rgba(13,15,11,0.45); text-decoration: line-through; text-decoration-thickness: 1.5px; }
+  .pcard.sold-out .add { border-color: rgba(13,15,11,0.3); color: rgba(13,15,11,0.55); }
+  .pcard.sold-out:hover .add { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .pcard.notify .stock { background: var(--gold); color: var(--ink); }
+
+  /* RESERVE BLOCK (premium treatment) */
+  .reserve-feat { background: var(--ink); color: var(--paper); padding: 60px 0; margin: 60px 0; position: relative; overflow: hidden; }
+  .reserve-feat::before {
+    content: 'RESERVE'; position: absolute; left: 0; right: 0; top: 50%;
+    transform: translateY(-50%); text-align: center;
+    font-family: 'Anton', sans-serif; font-size: clamp(140px, 24vw, 360px);
+    color: rgba(193,157,87,0.06); letter-spacing: 0.04em; pointer-events: none;
+  }
+  .reserve-feat .container { position: relative; z-index: 2; }
+
+  /* GAS FAM */
+  section.gasfam { padding: 100px 0; background: var(--paper-2); border-top: 1px solid rgba(13,15,11,0.08); }
+  .gasfam-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+  .gasfam .script-tag { font-family: 'Caveat', cursive; font-weight: 700; font-size: 32px; color: var(--olive); transform: rotate(-2deg); display: inline-block; margin-bottom: -6px; }
+  .gasfam h2 { font-family: 'Anton', sans-serif; font-size: clamp(44px, 6vw, 80px); margin: 8px 0 16px; color: var(--ink); text-transform: uppercase; }
+  .gasfam p { font-size: 16px; color: rgba(13,15,11,0.65); max-width: 480px; margin: 0 auto 36px; line-height: 1.6; }
+  .gasfam-form { display: flex; gap: 10px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; }
+  .gasfam-form input { flex: 1; min-width: 220px; padding: 16px 22px; background: var(--paper); border: 1px solid var(--ink); font-family: inherit; font-size: 15px; color: var(--ink); border-radius: 2px; }
+  .gasfam-form input:focus { outline: 2px solid var(--gold); outline-offset: -1px; }
+
+  /* FOOTER */
+  footer.site { background: var(--ink); color: var(--paper); padding: 90px 0 28px; position: relative; }
+  .foot-mega { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: clamp(72px, 14vw, 220px); line-height: 0.85; letter-spacing: -0.01em; color: var(--paper); margin: 0 0 60px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; }
+  .foot-mega .gold { color: var(--gold); }
+  .foot-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width: 768px){ .foot-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+  .foot-grid h5 { font-family: 'Archivo', sans-serif; font-size: 11px; letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase; margin: 0 0 18px; font-weight: 800; }
+  .foot-grid ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+  .foot-grid ul a { color: rgba(242,237,221,0.72); }
+  .foot-grid ul a:hover { color: var(--gold); }
+  .foot-grid .brand p { color: rgba(242,237,221,0.6); font-size: 14px; line-height: 1.65; max-width: 360px; margin: 14px 0 0; }
+  .foot-fine { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 60px; padding-top: 24px; display: grid; grid-template-columns: 1fr; gap: 12px; font-size: 11px; letter-spacing: 0.04em; color: rgba(242,237,221,0.45); line-height: 1.65; }
+  @media (min-width: 768px){ .foot-fine { grid-template-columns: 1fr 1fr; gap: 28px; } }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 700ms ease, transform 700ms ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  /* Inline logo (base64) — overrides src="assets/logo.png" so preview panel works without file fetching */
+  .logo-img, .logo-stamp img {
+    content: url("data:image/jpeg;base64,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");
+  }
+</style>
+</head>
+<body>
+
+<!-- AGE GATE (disabled in preview — re-enable for production) -->
+<div class="age-gate" id="ageGate" style="display:none;"></div>
+
+<!-- PROMO MARQUEE -->
+<div class="promo">
+  <div class="promo-track">
+    <span><span class="star">★</span> Lab-tested · COAs on request</span>
+    <span><span class="star">★</span> 20% off your first order</span>
+    <span><span class="star">★</span> Federally compliant · 2018 Farm Bill</span>
+    <span><span class="star">★</span> Veteran &amp; medical discount</span>
+    <span><span class="star">★</span> 21+ only</span>
+    <span><span class="star">★</span> Lab-tested · COAs on request</span>
+    <span><span class="star">★</span> 20% off your first order</span>
+    <span><span class="star">★</span> Federally compliant · 2018 Farm Bill</span>
+    <span><span class="star">★</span> Veteran &amp; medical discount</span>
+    <span><span class="star">★</span> 21+ only</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="main">
+  <div class="container row">
+    <a href="index.html" class="logo" aria-label="GreenGas Hemp">
+      <img src="assets/logo.png" alt="GreenGas Hemp" class="logo-img header" />
+      <span class="tag">not your father's hemp</span>
+    </a>
+    <nav class="primary">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="lab.html">Lab Reports</a>
+      <a href="about.html">Our Story</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="icons">
+      <button aria-label="Search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <a href="#" class="cart-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h2l2.5 11a2 2 0 0 0 2 1.5h7a2 2 0 0 0 2-1.5L21 9H6"/><circle cx="10" cy="21" r="1"/><circle cx="17" cy="21" r="1"/></svg>
+        Cart <span class="cart-count">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- SHOP HERO -->
+<section class="shop-hero">
+  <div class="container shop-hero-grid">
+    <div class="reveal">
+      <p class="kicker">The Catalog</p>
+      <h1 class="anton">Pull <span class="gold">up,</span><br/>fuel up.</h1>
+    </div>
+    <div class="reveal">
+      <p class="lead">Every drop on the shelf has been personally vetted — flower, rosin, vapes, and edibles. If it didn't pass the test, you won't see it here.</p>
+      <div class="quickstats">
+        <div><div class="n">38</div><div class="l">Total SKUs</div></div>
+        <div><div class="n">9</div><div class="l">Categories</div></div>
+        <div><div class="n">100%</div><div class="l">Lab tested</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<nav class="filterbar" id="filterbar">
+  <div class="container">
+    <div class="filterbar-inner">
+      <a href="#all" class="active">All <span class="count">38</span></a>
+      <a href="#reserve">Reserve <span class="count">2</span></a>
+      <a href="#exotic">Indoor Exotic <span class="count">9</span></a>
+      <a href="#rosin">Hash Rosin <span class="count">6</span></a>
+      <a href="#live-resin">Live Resin <span class="count">4</span></a>
+      <a href="#vapes">Vape Carts <span class="count">7</span></a>
+      <a href="#prerolls">Pre Rolls <span class="count">1</span></a>
+      <a href="#flower-drops">Flower Drops <span class="count">7</span></a>
+      <a href="#edibles">Edibles <span class="count">1</span></a>
+      <a href="#merch">Merch <span class="count">1</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ RESERVE ============ -->
+<div class="reserve-feat" id="reserve">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="index">01</div>
+      <div class="title-wrap">
+        <p class="kicker" style="color:var(--gold);">Reserve · Top shelf</p>
+        <h2 style="color:var(--paper);">Reserve Flower.</h2>
+        <p class="blurb" style="color:rgba(242,237,221,0.65);">Quarter jars from limited drops. Loud aroma, clean flavor, top-shelf structure. Connoisseur tier.</p>
+      </div>
+      <span class="count-tag">2 strains</span>
+    </div>
+    <div class="product-grid tier-1">
+      <a href="product.html" class="pcard">
+        <div class="ph">
+          <span class="stock">In Stock</span>
+          <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3537.jpg" alt="Dante's Inferno" loading="lazy" />
+        </div>
+        <div class="body">
+          <div class="cat">Reserve · 1/4oz Jar</div>
+          <h4>Dante's Inferno</h4>
+          <p class="strain">Small-batch · Limited drop</p>
+          <div class="foot"><span class="price">$80</span><span class="add">Add to Cart +</span></div>
+        </div>
+      </a>
+      <a href="product.html" class="pcard">
+        <div class="ph">
+          <span class="stock">In Stock</span>
+          <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3538.jpg" alt="Chimax" loading="lazy" />
+        </div>
+        <div class="body">
+          <div class="cat">Reserve · 1/4oz Jar</div>
+          <h4>Chimax</h4>
+          <p class="strain">Small-batch · Limited drop</p>
+          <div class="foot"><span class="price">$80</span><span class="add">Add to Cart +</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ INDOOR EXOTIC FLOWER ============ -->
+<section class="cat-section" id="exotic">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="index">02</div>
+      <div class="title-wrap">
+        <p class="kicker">Indoor Exotic · 1/8oz</p>
+        <h2>Indoor Exotic Flower.</h2>
+        <p class="blurb">Eighth jars, rotating menu. Indoor-grown, hand-trimmed strains across the flavor spectrum — fruity, gassy, dessert profiles.</p>
+      </div>
+      <span class="count-tag">9 strains</span>
+    </div>
+    <div class="product-grid">
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3541.jpg" alt="Nightmare OG" loading="lazy" /></div>
+        <div class="body"><div class="cat">Exotic · 1/8oz</div><h4>Nightmare OG</h4><p class="strain">Indoor exotic · Eighth jar</p><div class="foot"><span class="price">$30</span><span class="add">Add +</span></div></div>
+      </a>
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3539.jpg" alt="Blue Zushi" loading="lazy" /></div>
+        <div class="body"><div class="cat">Exotic · 1/8oz</div><h4>Blue Zushi</h4><p class="strain">Indoor exotic · Eighth jar</p><div class="foot"><span class="price">$30</span><span class="add">Add +</span></div></div>
+      </a>
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3540.jpg" alt="Watermelon MimosaZ" loading="lazy" /></div>
+        <div class="body"><div class="cat">Exotic · 1/8oz</div><h4>Watermelon MimosaZ</h4><p class="strain">Indoor exotic · Eighth jar</p><div class="foot"><span class="price">$30</span><span class="add">Add +</span></div></div>
+      </a>
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/Screenshot-2026-05-03-at-9.36.19-PM.png" alt="Piña Colada" loading="lazy" /></div>
+        <div class="body"><div class="cat">Exotic · 1/8oz</div><h4>Piña Colada</h4><p class="strain">Indoor exotic · Eighth jar</p><div class="foot"><span class="price">$30</span><span class="add">Add +</span></div></div>
+      </a>
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/Screenshot-2026-05-03-at-9.35.57-PM.png" alt="Blackout Cherry" loading="lazy" /></div>
+        <div class="body"><div class="cat">Exotic · 1/8oz</div><h4>Blackout Cherry</h4><p class="strain">Indoor exotic · Eighth jar</p><div class="foot"><span class="price">$30</span><span class="add">Add +</span></div></div>
+      </a>
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/IMG_3299.jpg" alt="Swazzle OG" loading="lazy" /></div>
+        <div class="body"><div class="cat">Exotic · 1/8oz · ★ 5-star</div><h4>Swazzle OG</h4><p class="strain">Indoor exotic · Customer favorite</p><div class="foot"><span class="price">$30</span><span class="add">Add +</span></div></div>
+      </a>
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/IMG_3298.jpg" alt="Gooseberries" loading="lazy" /></div>
+        <div class="body"><div class="cat">Exotic · 1/8oz</div><h4>Gooseberries</h4><p class="strain">Indoor exotic · Eighth jar</p><div class="foot"><span class="price">$30</span><span class="add">Add +</span></div></div>
+      </a>
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/Screenshot-2026-04-14-at-10.58.52-PM.png" alt="M.O.B" loading="lazy" /></div>
+        <div class="body"><div class="cat">Exotic · 1/8oz</div><h4>M.O.B</h4><p class="strain">Indoor exotic · Eighth jar</p><div class="foot"><span class="price">$30</span><span class="add">Add +</span></div></div>
+      </a>
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/Screenshot-2026-04-14-at-10.58.24-PM.png" alt="Biggie Runtz" loading="lazy" /></div>
+        <div class="body"><div class="cat">Exotic · 1/8oz</div><h4>Biggie Runtz</h4><p class="strain">Indoor exotic · Eighth jar</p><div class="foot"><span class="price">$30</span><span class="add">Add +</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HASH ROSIN ============ -->
+<section class="cat-section" id="rosin">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="index">03</div>
+      <div class="title-wrap">
+        <p class="kicker">Solventless · 1g</p>
+        <h2>Hash Rosin.</h2>
+        <p class="blurb">Tier 1 cold-cure and RosinTech Labs collabs. No solvents, no shortcuts — just pressed flower, full-spectrum terps.</p>
+      </div>
+      <span class="count-tag">6 cuts</span>
+    </div>
+    <div class="product-grid">
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/Screenshot-2026-04-21-at-10.46.02-PM.png" alt="Nam Wah" loading="lazy" /></div>
+        <div class="body"><div class="cat">Tier 1 Rosin · 1g</div><h4>Nam Wah</h4><p class="strain">Solventless · Cold-cure</p><div class="foot"><span class="price">$40</span><span class="add">Add +</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/Screenshot-2026-04-21-at-10.45.44-PM.png" alt="Sour Gushers" loading="lazy" /></div>
+        <div class="body"><div class="cat">Tier 1 Rosin · 1g</div><h4>Sour Gushers</h4><p class="strain">Solventless · Cold-cure</p><div class="foot"><span class="price">$40</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/5D60020F-77EE-4A1A-AB59-6BE0153FEA51.jpg" alt="Apples & Bananas" loading="lazy" /></div>
+        <div class="body"><div class="cat">Tier 1 Rosin · 1g</div><h4>Apples &amp; Bananas</h4><p class="strain">Solventless · Cold-cure</p><div class="foot"><span class="price">$40</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/Screenshot-2026-04-21-at-10.46.16-PM.png" alt="StrawNana" loading="lazy" /></div>
+        <div class="body"><div class="cat">Tier 1 Rosin · 1g</div><h4>StrawNana</h4><p class="strain">Solventless · Cold-cure</p><div class="foot"><span class="price">$40</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/03/9A745F5D-1D1F-421C-A222-45F063753658.jpeg" alt="Garlic Cocktail" loading="lazy" /></div>
+        <div class="body"><div class="cat">RosinTech Labs · 1g</div><h4>Garlic Cocktail</h4><p class="strain">Solventless · Lab collab</p><div class="foot"><span class="price">$37.50</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/03/809DD3D3-4688-4E71-8C88-FFB2AA144CA9.jpeg" alt="Orange Malt" loading="lazy" /></div>
+        <div class="body"><div class="cat">RosinTech Labs · 1g</div><h4>Orange Malt</h4><p class="strain">Solventless · Lab collab</p><div class="foot"><span class="price">$37.50</span><span class="add">Notify Me</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIVE RESIN ============ -->
+<section class="cat-section" id="live-resin">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="index">04</div>
+      <div class="title-wrap">
+        <p class="kicker">BHO · 2g jars</p>
+        <h2>Live Resin Badder.</h2>
+        <p class="blurb">Full-spectrum live resin extractions. Loud terpene profiles, smooth dab pull.</p>
+      </div>
+      <span class="count-tag">4 cuts</span>
+    </div>
+    <div class="product-grid">
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/Screenshot-2026-05-03-at-9.36.35-PM.png" alt="SVG OG" loading="lazy" /></div>
+        <div class="body"><div class="cat">Live Resin · 2g</div><h4>SVG OG</h4><p class="strain">BHO live resin · Full-spectrum</p><div class="foot"><span class="price">$25</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/Screenshot-2026-05-03-at-9.36.47-PM.png" alt="Lemon Zest" loading="lazy" /></div>
+        <div class="body"><div class="cat">Live Resin · 2g</div><h4>Lemon Zest</h4><p class="strain">BHO live resin · Full-spectrum</p><div class="foot"><span class="price">$25</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/IMG_3256-rotated.jpeg" alt="Girl Scout Cookie" loading="lazy" /></div>
+        <div class="body"><div class="cat">Live Resin · 2g</div><h4>Girl Scout Cookie</h4><p class="strain">BHO live resin · Full-spectrum</p><div class="foot"><span class="price">$25</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/03/IMG_2647.jpg" alt="Lemon Dosi" loading="lazy" /></div>
+        <div class="body"><div class="cat">Live Resin · 2g Jar</div><h4>Lemon Dosi Badder</h4><p class="strain">BHO live resin · Full-spectrum</p><div class="foot"><span class="price">$25</span><span class="add">Notify Me</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VAPE CARTS ============ -->
+<section class="cat-section" id="vapes">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="index">05</div>
+      <div class="title-wrap">
+        <p class="kicker">House-made · On the Go</p>
+        <h2>Vape Carts.</h2>
+        <p class="blurb">Our in-house cart line — not white-labeled, not rebranded. Clean, loud, consistent because we control the process from juice to cart.</p>
+      </div>
+      <span class="count-tag">7 strains</span>
+    </div>
+    <div class="product-grid">
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/03/F0644251-ED1E-4D0B-9B22-32A41DD3B785-e1778110795700.jpg" alt="ChopCheese 2.0" loading="lazy" /></div>
+        <div class="body"><div class="cat">Live Resin Cart · 1g</div><h4>ChopCheese 2.0</h4><p class="strain">House-made · Live resin</p><div class="foot"><span class="price">$30</span><span class="add">Add +</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2025/09/Media.webp" alt="Wedding Cake" loading="lazy" /></div>
+        <div class="body"><div class="cat">Cart · 1g</div><h4>Wedding Cake</h4><p class="strain">House-made distillate</p><div class="foot"><span class="price">$10</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2025/09/Media.webp" alt="White Runtz" loading="lazy" /></div>
+        <div class="body"><div class="cat">Cart · 1g</div><h4>White Runtz</h4><p class="strain">House-made distillate</p><div class="foot"><span class="price">$10</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2025/09/Media.webp" alt="Peanut Butter Breath" loading="lazy" /></div>
+        <div class="body"><div class="cat">Cart · 1g</div><h4>Peanut Butter Breath</h4><p class="strain">House-made distillate</p><div class="foot"><span class="price">$10</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2025/09/Media.webp" alt="Strawberry Guavaz" loading="lazy" /></div>
+        <div class="body"><div class="cat">Cart · 1g</div><h4>Strawberry Guavaz</h4><p class="strain">House-made distillate</p><div class="foot"><span class="price">$10</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2025/09/Media.webp" alt="Oreoz" loading="lazy" /></div>
+        <div class="body"><div class="cat">Cart · 1g</div><h4>Oreoz</h4><p class="strain">House-made distillate · Shipping soon</p><div class="foot"><span class="price">$10</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2025/09/Media.webp" alt="Girl Scout Cookies" loading="lazy" /></div>
+        <div class="body"><div class="cat">Cart · 1g</div><h4>Girl Scout Cookies</h4><p class="strain">House-made distillate · Shipping soon</p><div class="foot"><span class="price">$10</span><span class="add">Notify Me</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRE ROLLS ============ -->
+<section class="cat-section" id="prerolls">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="index">06</div>
+      <div class="title-wrap">
+        <p class="kicker">Pre Roll · KingSize</p>
+        <h2>Pre Rolls.</h2>
+        <p class="blurb">Hand-rolled KingSize joints, packed with indoor exotic flower.</p>
+      </div>
+      <span class="count-tag">1 SKU</span>
+    </div>
+    <div class="product-grid">
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3543.jpg" alt="1.25g KingSize Pre Roll" loading="lazy" /></div>
+        <div class="body"><div class="cat">Pre Roll · 1.25g</div><h4>KingSize Pre Roll</h4><p class="strain">Indoor exotic flower · Hand-rolled</p><div class="foot"><span class="price">$10</span><span class="add">Add +</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOWER DROPS (formerly Uncategorized) ============ -->
+<section class="cat-section" id="flower-drops">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="index">07</div>
+      <div class="title-wrap">
+        <p class="kicker">Drop · Sample size</p>
+        <h2>Flower Drops.</h2>
+        <p class="blurb">Sample-size drops for trying new strains before committing to an eighth or quarter. Rotating menu.</p>
+      </div>
+      <span class="count-tag">7 strains</span>
+    </div>
+    <div class="product-grid">
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2025/09/Media.webp" alt="Lemon Tree" loading="lazy" /></div>
+        <div class="body"><div class="cat">Drop · Sample</div><h4>Lemon Tree</h4><p class="strain">Fruit drop · Sample size</p><div class="foot"><span class="price">$10</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2025/09/Media.webp" alt="Sour Diesel" loading="lazy" /></div>
+        <div class="body"><div class="cat">Drop · Sample</div><h4>Sour Diesel</h4><p class="strain">Classic strain · Sample size</p><div class="foot"><span class="price">$10</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2025/09/Media.webp" alt="OG Kush" loading="lazy" /></div>
+        <div class="body"><div class="cat">Drop · Sample</div><h4>OG Kush</h4><p class="strain">Classic strain · Shipping soon</p><div class="foot"><span class="price">$10</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/01/Landing-Page.png" alt="White Razz" loading="lazy" /></div>
+        <div class="body"><div class="cat">Drop · Sample</div><h4>White Razz</h4><p class="strain">Fruit drop · Larger pack</p><div class="foot"><span class="price">$30</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/01/Landing-Page.png" alt="Cantaloupe Haze" loading="lazy" /></div>
+        <div class="body"><div class="cat">Drop · Sample</div><h4>Cantaloupe Haze</h4><p class="strain">Fruit drop · Sample size</p><div class="foot"><span class="price">$10</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/01/Landing-Page.png" alt="Stardawg Guava" loading="lazy" /></div>
+        <div class="body"><div class="cat">Drop · Sample</div><h4>Stardawg Guava</h4><p class="strain">Fruit drop · Sample size</p><div class="foot"><span class="price">$10</span><span class="add">Notify Me</span></div></div>
+      </a>
+      <a href="product.html" class="pcard sold-out notify">
+        <div class="ph"><span class="stock">Restock Soon</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/01/Landing-Page.png" alt="Lychee Breath" loading="lazy" /></div>
+        <div class="body"><div class="cat">Drop · Sample</div><h4>Lychee Breath</h4><p class="strain">Fruit drop · Sample size</p><div class="foot"><span class="price">$10</span><span class="add">Notify Me</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDIBLES ============ -->
+<section class="cat-section" id="edibles">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="index">08</div>
+      <div class="title-wrap">
+        <p class="kicker">Edibles · Snack drops</p>
+        <h2>Gas Snacks.</h2>
+        <p class="blurb">Edibles for when smoke isn't the move. Lab-tested, dosed and labeled.</p>
+      </div>
+      <span class="count-tag">1 SKU</span>
+    </div>
+    <div class="product-grid">
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/02/E8C6CBF5-58EF-4D7D-B3BF-5258D5FB04D6.jpeg" alt="TropiChews" loading="lazy" /></div>
+        <div class="body"><div class="cat">Edible · Gummies</div><h4>TropiChews</h4><p class="strain">Tropical fruit · Lab tested</p><div class="foot"><span class="price">$12</span><span class="add">Add +</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MERCH ============ -->
+<section class="cat-section" id="merch">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="index">09</div>
+      <div class="title-wrap">
+        <p class="kicker">Gas Gear</p>
+        <h2>Merch.</h2>
+        <p class="blurb">Branded gear for the Gas Fam.</p>
+      </div>
+      <span class="count-tag">1 SKU</span>
+    </div>
+    <div class="product-grid">
+      <a href="product.html" class="pcard">
+        <div class="ph"><span class="stock">In Stock</span><img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/01/3A137AF8-1333-4DE5-9674-389ECC63C470.jpeg" alt="GreenGas Branded Tumbler" loading="lazy" /></div>
+        <div class="body"><div class="cat">Gear · Drinkware</div><h4>Branded Tumbler</h4><p class="strain">Insulated · GreenGas logo</p><div class="foot"><span class="price">$40</span><span class="add">Add +</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GAS FAM EMAIL -->
+<section class="gasfam">
+  <div class="container gasfam-inner reveal">
+    <img src="assets/logo.png" alt="GreenGas Hemp" class="logo-img crest" />
+    <span class="script-tag">join the —</span>
+    <h2 class="anton">Gas Fam.</h2>
+    <p>Drop your email and get <strong style="color:var(--olive);font-weight:700;">20% off your first order</strong>. Plus early access on every new drop — no spam, just restocks and rare flower.</p>
+    <form class="gasfam-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Check your inbox ✓'; this.querySelector('input').value='';">
+      <input type="email" required placeholder="your@email.com" />
+      <button class="btn btn-primary">Fuel Up</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="container">
+    <div class="foot-mega">Not Your<br/>Father's<br/><span class="gold">Hemp.</span></div>
+    <p style="font-family:'Caveat',cursive;font-weight:700;font-size:clamp(24px,3vw,40px);color:var(--gold);transform:rotate(-2deg);margin:-30px 0 50px 12px;line-height:1;">— It's GreenGas.</p>
+    <div class="foot-grid">
+      <div class="brand">
+        <a href="index.html" aria-label="GreenGas Hemp"><img src="assets/logo.png" alt="GreenGas Hemp" class="logo-img footer" /></a>
+        <p>Maryland-based hemp operation built on one principle — real quality without the inflated price tag. House-made vapes and personally vetted drops. Adults 21+.</p>
+        <div style="display:flex; align-items:center; gap:10px; margin-top: 18px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(242,237,221,0.55); font-weight: 700;">
+          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--gold);"></span>
+          Shipping nationwide
+        </div>
+      </div>
+      <div>
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="shop.html#reserve">Reserve Flower</a></li>
+          <li><a href="shop.html#exotic">Indoor Exotic</a></li>
+          <li><a href="shop.html#rosin">Hash Rosin</a></li>
+          <li><a href="shop.html#vapes">Vape Carts</a></li>
+          <li><a href="shop.html#prerolls">Pre Rolls</a></li>
+          <li><a href="shop.html#edibles">Edibles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Info</h5>
+        <ul>
+          <li><a href="lab.html">Lab Reports / COAs</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Medical / Veteran Discount</a></li>
+          <li><a href="#">Shipping &amp; Returns</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:Service@GreenGasHemp.com">Service@GreenGasHemp.com</a></li>
+          <li><a href="tel:14439934385">(443) 993-4385</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-fine">
+      <p>© 2026 GreenGas Hemp. All rights reserved.</p>
+      <p>All products are hemp-derived and federally compliant under the 2018 Farm Bill (&lt;0.3% Δ-9 THC by dry weight). These statements have not been evaluated by the FDA. Products are not intended to diagnose, treat, cure, or prevent any disease. Do not operate vehicles or machinery while using.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Filter bar active state on scroll
+  const sections = ['reserve','exotic','rosin','live-resin','vapes','prerolls','flower-drops','edibles','merch']
+    .map(id => document.getElementById(id)).filter(Boolean);
+  const filterLinks = document.querySelectorAll('.filterbar a');
+  function updateActive() {
+    const scrollY = window.scrollY + 200;
+    let current = sections[0]?.id;
+    sections.forEach(s => { if (s.offsetTop <= scrollY) current = s.id; });
+    filterLinks.forEach(a => {
+      const href = a.getAttribute('href').slice(1);
+      a.classList.toggle('active', href === current || (href === 'all' && scrollY < (sections[0]?.offsetTop ?? 9999)));
+    });
+  }
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+</script>
+
+</body>
+</html>

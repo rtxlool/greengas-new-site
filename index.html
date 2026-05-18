@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GreenGas Hemp — Not Your Father's Hemp.</title>
+<meta name="description" content="Small-batch hemp grown, cured, and lab-tested in Virginia. Reserve flower, hash rosin, vape carts. COA on every product. Not your father's hemp." />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper:   #F2EDDD;   /* warm cream - main bg */
+    --paper-2: #E6DFC6;   /* deeper cream */
+    --ink:     #0D0F0B;   /* near-black, slightly warm */
+    --ink-2:   #1A1D16;
+    --olive:   #4A6825;
+    --olive-d: #2D4316;
+    --olive-l: #6B8C3A;
+    --gold:    #C19D57;
+    --gold-d:  #9C7C3F;
+    --rust:    #A24A22;
+    --bone:    #E8E2CC;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    /* subtle paper grain */
+    background-image:
+      radial-gradient(at 12% 18%, rgba(74,104,37,0.06) 0, transparent 50%),
+      radial-gradient(at 85% 75%, rgba(193,157,87,0.05) 0, transparent 50%);
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  /* TYPE */
+  .anton { font-family: 'Anton', 'Archivo Black', system-ui, sans-serif; font-weight: 400; letter-spacing: -0.005em; line-height: 0.88; text-transform: uppercase; }
+  .display { font-family: 'Archivo', system-ui, sans-serif; font-weight: 900; letter-spacing: -0.025em; line-height: 0.95; }
+  .script { font-family: 'Caveat', cursive; font-weight: 700; }
+  .mono { font-family: ui-monospace, 'SF Mono', Menlo, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  .kicker {
+    font-family: 'Archivo', sans-serif;
+    font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 700;
+    color: var(--olive);
+  }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+  @media (min-width: 768px){ .container { padding: 0 56px; } }
+
+  /* PROMO STRIP */
+  .promo {
+    background: var(--ink); color: var(--paper);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600;
+    overflow: hidden;
+  }
+  .promo-track {
+    display: flex; gap: 48px; padding: 11px 0; white-space: nowrap;
+    animation: marquee 42s linear infinite;
+  }
+  .promo-track span { display: inline-flex; align-items: center; gap: 14px; }
+  .promo-track .star { color: var(--gold); }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* HEADER */
+  header.main {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(13,15,11, 0.97);
+    color: var(--paper);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  header.main .row {
+    height: 78px; display:flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 14px;
+    font-family: 'Anton', sans-serif; font-size: 26px; letter-spacing: 0.01em;
+    text-transform: uppercase; color: var(--paper);
+  }
+  .logo .dot { color: var(--gold); }
+  .logo .tag {
+    display: none;
+    font-family: 'Caveat', cursive; font-weight: 700; font-size: 16px;
+    color: var(--gold); transform: rotate(-3deg); letter-spacing: 0;
+    text-transform: none; margin-left: 4px;
+  }
+  @media (min-width: 900px){ .logo .tag { display: inline; } }
+  .logo-img { height: 48px; width: auto; display: block; }
+  .logo-img.header { height: 44px; border-radius: 2px; }
+  .logo-img.crest { height: 96px; margin: 0 auto 20px; }
+  .logo-img.footer { height: 60px; border-radius: 2px; }
+  .logo-stamp {
+    position: absolute; z-index: 3;
+    background: var(--paper);
+    padding: 8px 12px;
+    border: 1px solid rgba(13,15,11,0.08);
+    box-shadow: 0 8px 24px -8px rgba(0,0,0,0.4);
+    transform: rotate(-6deg);
+  }
+  .logo-stamp img { height: 44px; width: auto; display: block; }
+  nav.primary { display:none; gap: 32px; }
+  @media (min-width: 900px){ nav.primary { display: flex; } }
+  nav.primary a {
+    font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--paper);
+    padding: 4px 0; position: relative;
+  }
+  nav.primary a::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -4px;
+    height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left;
+    transition: transform 240ms ease;
+  }
+  nav.primary a:hover::after, nav.primary a.active::after { transform: scaleX(1); }
+  .icons { display:flex; align-items: center; gap: 8px; }
+  .icons button, .icons a {
+    background: transparent; border: 0; color: var(--paper);
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 12px; border-radius: 4px;
+    font-family: 'Archivo', sans-serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .icons a:hover, .icons button:hover { background: rgba(255,255,255,0.06); }
+  .cart-btn { border: 1px solid rgba(255,255,255,0.16) !important; }
+  .cart-count {
+    background: var(--gold); color: var(--ink);
+    padding: 1px 7px; border-radius: 2px; font-size: 11px; font-weight: 800;
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 26px;
+    font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 800;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    border: 1px solid transparent; border-radius: 2px;
+    transition: background 180ms ease, color 180ms ease;
+  }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--olive); }
+  .btn-gold { background: var(--gold); color: var(--ink); }
+  .btn-gold:hover { background: var(--ink); color: var(--gold); }
+  .btn-outline-light { background: transparent; color: var(--paper); border-color: var(--paper); }
+  .btn-outline-light:hover { background: var(--paper); color: var(--ink); }
+  .btn-outline-dark { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-outline-dark:hover { background: var(--ink); color: var(--paper); }
+
+  /* HERO */
+  section.hero {
+    background: var(--ink); color: var(--paper);
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .hero-inner {
+    position: relative;
+    display: grid; grid-template-columns: 1fr; gap: 40px;
+    padding: 60px 0 80px;
+    align-items: center;
+  }
+  @media (min-width: 1000px){
+    .hero-inner { grid-template-columns: 1.2fr 1fr; gap: 56px; padding: 72px 0 100px; }
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    border: 1px solid rgba(255,255,255,0.16);
+    padding: 8px 16px; border-radius: 2px;
+    margin-bottom: 32px;
+  }
+  .hero-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(193,157,87,0.18); }
+  .hero-eyebrow .text { font-family: 'Archivo', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--paper); }
+  .hero-eyebrow .est { color: var(--gold); }
+
+  .slogan {
+    font-size: clamp(58px, 11vw, 168px);
+    margin: 0;
+    color: var(--paper);
+  }
+  .slogan .a { display: block; }
+  .slogan .b { display: block; color: var(--olive-l); }
+  .slogan .c { display: block; }
+  .slogan .stroke {
+    -webkit-text-stroke: 2px var(--paper);
+    color: transparent;
+  }
+  .slogan .underline {
+    position: relative; display: inline-block;
+  }
+  .slogan .underline::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 6px;
+    height: 6px; background: var(--gold); transform: skewX(-12deg);
+    z-index: -1;
+  }
+
+  .hero-sub {
+    margin-top: 32px; max-width: 520px;
+    font-size: 17px; line-height: 1.6; color: rgba(242,237,221,0.78);
+  }
+  .hero-ctas { display:flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+  .hero-stats {
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    margin-top: 48px; padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stats .stat .n {
+    font-family: 'Anton', sans-serif; font-size: 36px; line-height: 1; color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .hero-stats .stat .l {
+    font-family: 'Archivo', sans-serif; font-size: 11px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: rgba(242,237,221,0.6); font-weight: 600;
+  }
+
+  /* HERO PHOTO */
+  .hero-photo {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: var(--ink-2);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
+  .hero-photo::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(13,15,11,0.85) 100%);
+    z-index: 1;
+  }
+  .hero-photo .stamp {
+    position: absolute; top: 20px; right: 20px; z-index: 2;
+    width: 110px; height: 110px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; color: var(--gold);
+    font-family: 'Anton', sans-serif; line-height: 1;
+    transform: rotate(-8deg);
+    background: rgba(13,15,11,0.7); backdrop-filter: blur(6px);
+  }
+  .hero-photo .stamp .s1 { font-size: 11px; letter-spacing: 0.2em; }
+  .hero-photo .stamp .s2 { font-size: 32px; margin: 6px 0; letter-spacing: 0.04em; }
+  .hero-photo .stamp .s3 { font-size: 10px; letter-spacing: 0.18em; }
+  .hero-photo .caption {
+    position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 2;
+    color: var(--paper);
+  }
+  .hero-photo .caption .name { font-family: 'Anton', sans-serif; font-size: 32px; letter-spacing: 0.02em; }
+  .hero-photo .caption .meta {
+    display: flex; align-items: center; gap: 12px; margin-top: 6px;
+    font-family: 'Archivo', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(242,237,221,0.75);
+  }
+  .hero-photo .caption .meta .price { color: var(--gold); font-weight: 800; }
+
+  /* BIG TAGLINE BANNER */
+  .banner {
+    background: var(--gold); color: var(--ink);
+    overflow: hidden;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .banner-track {
+    display: flex; gap: 0; padding: 18px 0; white-space: nowrap;
+    font-family: 'Anton', sans-serif; font-size: clamp(38px, 6vw, 72px);
+    text-transform: uppercase; letter-spacing: 0.01em;
+    animation: marquee 32s linear infinite;
+  }
+  .banner-track span { display: inline-flex; align-items: center; padding: 0 32px; }
+  .banner-track .dot {
+    width: 14px; height: 14px; border-radius: 50%; background: var(--ink);
+    margin: 0 32px; flex-shrink: 0; align-self: center;
+  }
+
+  /* INTRO / FOUNDER NOTE */
+  section.intro { padding: 100px 0 60px; }
+  .intro-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; }
+  @media (min-width: 900px){ .intro-grid { grid-template-columns: 0.9fr 1.1fr; gap: 80px; } }
+  .intro-head h2 {
+    font-size: clamp(40px, 5.5vw, 76px); margin: 16px 0 0; color: var(--ink);
+  }
+  .intro-body p {
+    font-size: 17px; line-height: 1.65; color: rgba(13,15,11,0.72);
+    margin: 0 0 20px;
+  }
+  .signature {
+    display: flex; align-items: center; gap: 20px; margin-top: 36px;
+    padding-top: 24px; border-top: 1px solid rgba(13,15,11,0.12);
+  }
+  .signature .sig {
+    font-family: 'Caveat', cursive; font-weight: 700; font-size: 38px;
+    color: var(--olive); transform: rotate(-2deg) translateY(-2px);
+  }
+  .signature .who {
+    font-family: 'Archivo', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: rgba(13,15,11,0.55); font-weight: 700;
+  }
+  .signature .who strong { display:block; color: var(--ink); font-weight: 800; letter-spacing: 0.04em; }
+
+  /* PROCESS */
+  section.process { padding: 80px 0 120px; }
+  .process-grid { display: grid; grid-template-columns: 1fr; gap: 0; border: 1px solid rgba(13,15,11,0.12); }
+  @media (min-width: 768px){ .process-grid { grid-template-columns: repeat(3, 1fr); } }
+  .step {
+    padding: 44px 36px;
+    border-bottom: 1px solid rgba(13,15,11,0.12);
+    background: var(--paper);
+    position: relative;
+    transition: background 200ms ease;
+  }
+  .step:hover { background: var(--paper-2); }
+  @media (min-width: 768px){
+    .step { border-right: 1px solid rgba(13,15,11,0.12); border-bottom: 0; }
+    .step:last-child { border-right: 0; }
+  }
+  .step .num {
+    font-family: 'Anton', sans-serif; font-size: 72px; color: var(--olive);
+    line-height: 0.9; margin-bottom: 24px;
+    -webkit-text-stroke: 0;
+  }
+  .step h3 { font-family: 'Anton', sans-serif; font-size: 28px; letter-spacing: 0.01em; margin: 0 0 14px; text-transform: uppercase; }
+  .step p { font-size: 15px; line-height: 1.65; color: rgba(13,15,11,0.65); margin: 0; }
+
+  /* DROPS */
+  section.drops { padding: 100px 0; background: var(--ink); color: var(--paper); position: relative; }
+  .drops-head { display:flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 56px; }
+  .drops-head .kicker { color: var(--gold); }
+  .drops-head h2 { font-size: clamp(44px, 5.5vw, 72px); margin: 14px 0 0; color: var(--paper); }
+  .drops-head .link {
+    font-family: 'Archivo', sans-serif; font-size: 12px; font-weight: 800;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold);
+    border-bottom: 1.5px solid var(--gold); padding-bottom: 4px;
+  }
+  .drops-head .link:hover { color: var(--paper); border-color: var(--paper); }
+
+  .drops-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (min-width:768px){ .drops-grid { grid-template-columns: repeat(4,1fr); gap: 20px; } }
+  .pcard {
+    background: var(--ink-2);
+    display: block; position: relative; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: border-color 200ms ease;
+  }
+  .pcard:hover { border-color: var(--gold); }
+  .pcard .ph { aspect-ratio: 1; overflow: hidden; background: #000; position: relative; }
+  .pcard .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform 800ms ease; }
+  .pcard:hover .ph img { transform: scale(1.06); }
+  .pcard .stock {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--gold); color: var(--ink);
+    padding: 5px 10px;
+    font-family: 'Archivo', sans-serif; font-size: 10px; font-weight: 800;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .pcard .body { padding: 22px 22px 24px; }
+  .pcard .cat { font-family: 'Archivo', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+  .pcard h4 { font-family: 'Anton', sans-serif; font-size: 26px; letter-spacing: 0.01em; text-transform: uppercase; margin: 12px 0 6px; }
+  .pcard .strain { font-size: 12px; color: rgba(242,237,221,0.55); margin: 0 0 22px; letter-spacing: 0.04em; }
+  .pcard .foot { display:flex; align-items: center; justify-content: space-between; }
+  .pcard .price { font-family: 'Anton', sans-serif; font-size: 26px; color: var(--gold); letter-spacing: 0.02em; }
+  .pcard .add {
+    font-family: 'Archivo', sans-serif; font-size: 11px; font-weight: 800;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 10px 14px;
+    border: 1px solid rgba(255,255,255,0.18); color: var(--paper);
+    transition: background 180ms ease, color 180ms ease;
+  }
+  .pcard:hover .add { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+
+  /* CATEGORIES */
+  section.categories { padding: 120px 0; }
+  .cat-head { display:flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 56px; }
+  .cat-head h2 { font-size: clamp(44px, 5.5vw, 80px); margin: 14px 0 0; }
+  .cat-grid { display:grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 768px){ .cat-grid { grid-template-columns: 1.4fr 1fr 1fr; gap: 20px; } }
+  .cat-card { position: relative; aspect-ratio: 4/5; overflow: hidden; color: var(--paper); border: 1px solid rgba(13,15,11,0.08); }
+  @media (min-width: 768px){ .cat-card:first-child { aspect-ratio: auto; grid-row: span 2; } }
+  .cat-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1100ms ease; }
+  .cat-card:hover img { transform: scale(1.05); }
+  .cat-card .veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,15,11,0.9) 5%, rgba(13,15,11,0.2) 55%, transparent 100%); }
+  .cat-card .info { position: absolute; left: 28px; right: 28px; bottom: 28px; z-index: 2; }
+  .cat-card .info .kicker { color: var(--gold); margin-bottom: 8px; }
+  .cat-card .info h3 { font-family: 'Anton', sans-serif; font-size: clamp(36px, 4vw, 56px); margin: 0; letter-spacing: 0.01em; text-transform: uppercase; }
+  .cat-card .info p { margin: 8px 0 0; opacity: 0.72; font-size: 14px; }
+  .cat-card .corner {
+    position: absolute; top: 20px; right: 20px; z-index: 2;
+    font-family: 'Archivo', sans-serif; font-size: 11px; font-weight: 800;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--paper);
+    background: rgba(13,15,11,0.5); backdrop-filter: blur(6px);
+    padding: 8px 12px;
+  }
+
+  /* QUOTE */
+  section.quote {
+    padding: 140px 0; background: var(--olive); color: var(--paper);
+    position: relative; overflow: hidden; text-align: center;
+  }
+  .quote::before {
+    content: '"'; position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+    font-family: 'Anton', sans-serif; font-size: 360px; line-height: 1;
+    color: rgba(242,237,221,0.06); pointer-events: none;
+  }
+  .quote-inner { max-width: 900px; margin: 0 auto; position: relative; }
+  .quote-inner blockquote {
+    font-family: 'Anton', sans-serif; font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.1; letter-spacing: 0.005em; margin: 0; text-transform: uppercase;
+  }
+  .quote-inner blockquote .high { color: var(--gold); }
+  .quote-inner cite { display: block; margin-top: 36px; font-style: normal; font-family: 'Archivo', sans-serif; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,237,221,0.7); font-weight: 700; }
+
+  /* EMAIL / GAS FAM */
+  section.gasfam {
+    padding: 120px 0; background: var(--paper-2);
+    border-top: 1px solid rgba(13,15,11,0.08);
+    position: relative;
+  }
+  .gasfam-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+  .gasfam .script-tag { font-family: 'Caveat', cursive; font-weight: 700; font-size: 32px; color: var(--olive); transform: rotate(-2deg); display: inline-block; margin-bottom: -6px; }
+  .gasfam h2 { font-size: clamp(44px, 6vw, 88px); margin: 8px 0 16px; color: var(--ink); }
+  .gasfam p { font-size: 16px; color: rgba(13,15,11,0.65); max-width: 480px; margin: 0 auto 36px; line-height: 1.6; }
+  .gasfam-form { display:flex; gap: 10px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; }
+  .gasfam-form input {
+    flex: 1; min-width: 220px;
+    padding: 16px 22px;
+    background: var(--paper); border: 1px solid var(--ink);
+    font-family: inherit; font-size: 15px; color: var(--ink);
+    border-radius: 2px;
+  }
+  .gasfam-form input:focus { outline: 2px solid var(--gold); outline-offset: -1px; }
+  .gasfam .perks {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;
+    margin-top: 36px; font-family: 'Archivo', sans-serif; font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--olive);
+  }
+  .gasfam .perks span::before { content: '✓'; margin-right: 8px; color: var(--gold); }
+
+  /* FOOTER */
+  footer.site { background: var(--ink); color: var(--paper); padding: 90px 0 28px; position: relative; }
+  .foot-mega {
+    font-family: 'Anton', sans-serif; text-transform: uppercase;
+    font-size: clamp(72px, 14vw, 220px); line-height: 0.85; letter-spacing: -0.01em;
+    color: var(--paper); margin: 0 0 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px;
+  }
+  .foot-mega .gold { color: var(--gold); }
+  .foot-grid { display:grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width:768px){ .foot-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+  .foot-grid h5 { font-family: 'Archivo', sans-serif; font-size: 11px; letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase; margin: 0 0 18px; font-weight: 800; }
+  .foot-grid ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+  .foot-grid ul a { color: rgba(242,237,221,0.72); }
+  .foot-grid ul a:hover { color: var(--gold); }
+  .foot-grid .brand p { color: rgba(242,237,221,0.6); font-size: 14px; line-height: 1.65; max-width: 360px; margin: 14px 0 0; }
+  .foot-fine { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 60px; padding-top: 24px; display:grid; grid-template-columns: 1fr; gap: 12px; font-size: 11px; letter-spacing: 0.04em; color: rgba(242,237,221,0.45); line-height: 1.65; }
+  @media (min-width: 768px){ .foot-fine { grid-template-columns: 1fr 1fr; gap: 28px; } }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 700ms ease, transform 700ms ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* AGE GATE */
+  .age-gate { position: fixed; inset: 0; z-index: 100; background: rgba(13,15,11,0.96); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .age-gate .panel { background: var(--paper); max-width: 460px; width: 100%; padding: 48px 36px; text-align: center; border: 1px solid rgba(13,15,11,0.08); }
+  .age-gate .seal { display:inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: 50%; border: 1.5px solid var(--olive); color: var(--olive); font-family: 'Anton', sans-serif; font-size: 28px; margin: 0 auto 24px; }
+  .age-gate h2 { font-family: 'Anton', sans-serif; font-size: 36px; margin: 0 0 12px; line-height: 1.05; text-transform: uppercase; }
+  .age-gate p { font-size: 14px; color: rgba(13,15,11,0.6); line-height: 1.55; margin: 0 0 28px; }
+  .age-gate .actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  /* Inline logo (base64) — overrides src="assets/logo.png" so preview panel works without file fetching */
+  .logo-img, .logo-stamp img {
+    content: url("data:image/jpeg;base64,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");
+  }
+</head>
+<body>
+
+<!-- AGE GATE (disabled in preview — re-enable for production) -->
+<div class="age-gate" id="ageGate" style="display:none;">
+  <div class="panel">
+    <div class="seal">21+</div>
+    <h2>Are You of Legal Age?</h2>
+    <p>You must be 21 or older to enter this site. By continuing you confirm your age and agree to our terms.</p>
+    <div class="actions">
+      <button class="btn btn-primary" onclick="confirmAge()">Yes, I'm 21+</button>
+      <a class="btn btn-outline-dark" href="https://google.com">No, Exit</a>
+    </div>
+  </div>
+</div>
+
+<!-- PROMO MARQUEE -->
+<div class="promo">
+  <div class="promo-track">
+    <span><span class="star">★</span> Lab-tested · COAs on request</span>
+    <span><span class="star">★</span> 20% off your first order</span>
+    <span><span class="star">★</span> Federally compliant · 2018 Farm Bill</span>
+    <span><span class="star">★</span> Veteran &amp; medical discount</span>
+    <span><span class="star">★</span> 21+ only</span>
+    <span><span class="star">★</span> Lab-tested · COAs on request</span>
+    <span><span class="star">★</span> 20% off your first order</span>
+    <span><span class="star">★</span> Federally compliant · 2018 Farm Bill</span>
+    <span><span class="star">★</span> Veteran &amp; medical discount</span>
+    <span><span class="star">★</span> 21+ only</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="main">
+  <div class="container row">
+    <a href="/" class="logo" aria-label="GreenGas Hemp — Not your father's hemp">
+      <img src="assets/logo.png" alt="GreenGas Hemp" class="logo-img header" />
+      <span class="tag">not your father's hemp</span>
+    </a>
+    <nav class="primary">
+      <a href="/" class="active">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="lab.html">Lab Reports</a>
+      <a href="about.html">Our Story</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="icons">
+      <button aria-label="Search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <a href="shop.html" class="cart-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h2l2.5 11a2 2 0 0 0 2 1.5h7a2 2 0 0 0 2-1.5L21 9H6"/><circle cx="10" cy="21" r="1"/><circle cx="17" cy="21" r="1"/></svg>
+        Cart <span class="cart-count">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content reveal">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        <span class="text">Est. <span class="est">2024</span> · Maryland-Based</span>
+      </div>
+      <h1 class="anton slogan">
+        <span class="a">Not Your</span>
+        <span class="b"><span class="underline">Father's</span></span>
+        <span class="c">Hemp.</span>
+      </h1>
+      <p class="hero-sub">House-made vapes and carefully sourced drops — every product personally vetted, lab-tested for safety, and priced like it should be. Real quality without the inflated price tag. <strong style="color:var(--gold);font-weight:700;">We don't deal in mids.</strong></p>
+      <div class="hero-ctas">
+        <a href="shop.html" class="btn btn-gold">
+          Shop the Catalog
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a href="lab.html" class="btn btn-outline-light">See the Lab Tests</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="n">38</div><div class="l">SKUs in rotation</div></div>
+        <div class="stat"><div class="n">100%</div><div class="l">Lab tested</div></div>
+        <div class="stat"><div class="n">0%</div><div class="l">Mids on the shelf</div></div>
+      </div>
+    </div>
+    <div class="hero-photo reveal">
+      <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3537.jpg" alt="Dante's Inferno reserve flower" />
+      <div class="logo-stamp" style="bottom: 96px; left: 20px;">
+        <img src="assets/logo.png" alt="GreenGas" />
+      </div>
+      <div class="stamp">
+        <div class="s1">Reserve</div>
+        <div class="s2">Drop</div>
+        <div class="s3">1/4 oz</div>
+      </div>
+      <div class="caption">
+        <div class="name">Dante's Inferno</div>
+        <div class="meta"><span>Quarter Jar · Small Batch</span><span class="price">$80</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOLD TAGLINE BANNER -->
+<div class="banner">
+  <div class="banner-track">
+    <span>Not Your Father's Hemp</span><span class="dot"></span>
+    <span>Maryland-Based</span><span class="dot"></span>
+    <span>Lab-Tested Every Batch</span><span class="dot"></span>
+    <span>We Don't Deal in Mids</span><span class="dot"></span>
+    <span>Not Your Father's Hemp</span><span class="dot"></span>
+    <span>Maryland-Based</span><span class="dot"></span>
+    <span>Lab-Tested Every Batch</span><span class="dot"></span>
+    <span>We Don't Deal in Mids</span><span class="dot"></span>
+  </div>
+</div>
+
+<!-- INTRO / FOUNDER NOTE -->
+<section class="intro">
+  <div class="container intro-grid">
+    <div class="intro-head reveal">
+      <img src="assets/logo.png" alt="GreenGas Hemp" class="logo-img" style="height: 110px; margin-bottom: 28px;" />
+      <p class="kicker">Welcome to GreenGas</p>
+      <h2 class="anton">We Don't Deal<br/>in Mids.</h2>
+    </div>
+    <div class="intro-body reveal">
+      <p>GreenGas is a Maryland-based operation built on one principle — deliver <strong style="color:var(--ink);font-weight:700;">real quality without the inflated price tag</strong>.</p>
+      <p>From our house-made vapes to carefully sourced drops, every product is personally vetted before it reaches you. If it doesn't meet our standard, it doesn't make the shelf.</p>
+      <p>All products are lab tested for safety and compliance. We believe in clean product, loud flavor, and consistent experience — because the standard matters.</p>
+      <p style="font-family: 'Anton', sans-serif; font-size: clamp(22px, 2.6vw, 32px); text-transform: uppercase; letter-spacing: 0.01em; color: var(--olive); margin: 32px 0 0; line-height: 1.1;">This isn't your father's hemp. <span style="color: var(--gold);">It's GreenGas.</span></p>
+      <div class="signature">
+        <div class="sig">— GreenGas</div>
+        <div class="who"><strong>The Team</strong>Curators &amp; operators · Maryland</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="process-grid">
+      <div class="step reveal">
+        <div class="num">01</div>
+        <h3>Sourced With a Standard.</h3>
+        <p>Every flower drop, rosin cut, and edible we carry is personally vetted before it hits the shelf. If it doesn't meet our standard, it doesn't make the cut. Simple.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">02</div>
+        <h3>House-Made Vapes.</h3>
+        <p>Our On the Go cart line is built in-house — not white-labeled, not rebranded. Clean, loud, and consistent because we control the process from juice to cart.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">03</div>
+        <h3>Lab Tested. Always.</h3>
+        <p>Every product is tested for safety and compliance. Certificates of Analysis available on request — Δ-9 THC under 0.3% by dry weight per the 2018 Farm Bill.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DROPS -->
+<section class="drops">
+  <div class="container">
+    <div class="drops-head reveal">
+      <div>
+        <p class="kicker">In stock now</p>
+        <h2 class="anton">This Week's Drops</h2>
+      </div>
+      <a href="shop.html" class="link">View Full Catalog →</a>
+    </div>
+    <div class="drops-grid">
+      <a href="product.html" class="pcard reveal">
+        <div class="ph">
+          <span class="stock">In Stock</span>
+          <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3537.jpg" alt="Dante's Inferno" loading="lazy" />
+        </div>
+        <div class="body">
+          <div class="cat">Reserve · 1/4oz</div>
+          <h4>Dante's Inferno</h4>
+          <p class="strain">Small-batch · Quarter jar</p>
+          <div class="foot">
+            <span class="price">$80</span>
+            <span class="add">Add +</span>
+          </div>
+        </div>
+      </a>
+      <a href="product.html" class="pcard reveal">
+        <div class="ph">
+          <span class="stock">In Stock</span>
+          <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3539.jpg" alt="Blue Zushi" loading="lazy" />
+        </div>
+        <div class="body">
+          <div class="cat">Exotic · 1/8oz</div>
+          <h4>Blue Zushi</h4>
+          <p class="strain">Indoor exotic · Eighth jar</p>
+          <div class="foot">
+            <span class="price">$30</span>
+            <span class="add">Add +</span>
+          </div>
+        </div>
+      </a>
+      <a href="product.html" class="pcard reveal">
+        <div class="ph">
+          <span class="stock">In Stock</span>
+          <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/Screenshot-2026-04-21-at-10.46.02-PM.png" alt="Nam Wah hash rosin" loading="lazy" />
+        </div>
+        <div class="body">
+          <div class="cat">Tier 1 Rosin · 1g</div>
+          <h4>Nam Wah</h4>
+          <p class="strain">Solventless · Tier 1</p>
+          <div class="foot">
+            <span class="price">$40</span>
+            <span class="add">Add +</span>
+          </div>
+        </div>
+      </a>
+      <a href="product.html" class="pcard reveal">
+        <div class="ph">
+          <span class="stock">In Stock</span>
+          <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/03/F0644251-ED1E-4D0B-9B22-32A41DD3B785-e1778110795700.jpg" alt="ChopCheese cart" loading="lazy" />
+        </div>
+        <div class="body">
+          <div class="cat">Vape Cart · 1g</div>
+          <h4>ChopCheese 2.0</h4>
+          <p class="strain">House-made · Live resin</p>
+          <div class="foot">
+            <span class="price">$30</span>
+            <span class="add">Add +</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="container">
+    <div class="cat-head reveal">
+      <div>
+        <p class="kicker">Shop by form</p>
+        <h2 class="anton">Find Your Flavor.</h2>
+      </div>
+      <a href="shop.html" class="btn btn-outline-dark">All Categories</a>
+    </div>
+    <div class="cat-grid">
+      <a href="shop.html#reserve" class="cat-card reveal">
+        <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3538.jpg" alt="" />
+        <div class="veil"></div>
+        <span class="corner">From $80</span>
+        <div class="info">
+          <p class="kicker">2 strains</p>
+          <h3>Reserve Flower</h3>
+          <p>Top-shelf, small-batch quarter jars</p>
+        </div>
+      </a>
+      <a href="shop.html#exotic" class="cat-card reveal">
+        <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/IMG_3299.jpg" alt="" />
+        <div class="veil"></div>
+        <span class="corner">From $30</span>
+        <div class="info">
+          <p class="kicker">9 strains</p>
+          <h3>Indoor Exotic</h3>
+          <p>Eighths, rotating menu</p>
+        </div>
+      </a>
+      <a href="shop.html#rosin" class="cat-card reveal">
+        <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/5D60020F-77EE-4A1A-AB59-6BE0153FEA51.jpg" alt="" />
+        <div class="veil"></div>
+        <span class="corner">From $37.50</span>
+        <div class="info">
+          <p class="kicker">6 cuts</p>
+          <h3>Hash Rosin</h3>
+          <p>Solventless concentrates</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote">
+  <div class="container quote-inner reveal">
+    <blockquote>
+      Clean product.<br/>
+      <span class="high">Loud flavor.</span><br/>
+      Consistent experience.
+    </blockquote>
+    <cite>— The GreenGas Standard</cite>
+  </div>
+</section>
+
+<!-- GAS FAM EMAIL -->
+<section class="gasfam">
+  <div class="container gasfam-inner reveal">
+    <img src="assets/logo.png" alt="GreenGas Hemp" class="logo-img crest" />
+    <span class="script-tag">join the —</span>
+    <h2 class="anton">Gas Fam.</h2>
+    <p>Drop your email and get <strong style="color:var(--olive);font-weight:700;">20% off your first order</strong>. Plus early access on every new drop — no spam, just restocks and rare flower.</p>
+    <form class="gasfam-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Check your inbox ✓'; this.querySelector('input').value='';">
+      <input type="email" required placeholder="your@email.com" />
+      <button class="btn btn-primary">Fuel Up</button>
+    </form>
+    <div class="perks">
+      <span>20% Off First Order</span>
+      <span>Early Drop Access</span>
+      <span>Restock Alerts Only</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="container">
+    <div class="foot-mega">Not Your<br/>Father's<br/><span class="gold">Hemp.</span></div>
+    <p style="font-family:'Caveat',cursive;font-weight:700;font-size:clamp(24px,3vw,40px);color:var(--gold);transform:rotate(-2deg);margin:-30px 0 50px 12px;line-height:1;">— It's GreenGas.</p>
+    <div class="foot-grid">
+      <div class="brand">
+        <a href="/" aria-label="GreenGas Hemp"><img src="assets/logo.png" alt="GreenGas Hemp" class="logo-img footer" /></a>
+        <p>Maryland-based hemp operation built on one principle — real quality without the inflated price tag. House-made vapes and personally vetted drops. Adults 21+.</p>
+        <div style="display:flex; align-items:center; gap:10px; margin-top: 18px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(242,237,221,0.55); font-weight: 700;">
+          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--gold);"></span>
+          Shipping nationwide
+        </div>
+      </div>
+      <div>
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="shop.html#reserve">Reserve Flower</a></li>
+          <li><a href="shop.html#exotic">Indoor Exotic</a></li>
+          <li><a href="shop.html#rosin">Hash Rosin</a></li>
+          <li><a href="shop.html#vapes">Vape Carts</a></li>
+          <li><a href="shop.html#prerolls">Pre Rolls</a></li>
+          <li><a href="shop.html#edibles">Edibles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Info</h5>
+        <ul>
+          <li><a href="lab.html">Lab Reports / COAs</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Medical / Veteran Discount</a></li>
+          <li><a href="#">Shipping &amp; Returns</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:Service@GreenGasHemp.com">Service@GreenGasHemp.com</a></li>
+          <li><a href="tel:14439934385">(443) 993-4385</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-fine">
+      <p>© 2026 GreenGas Hemp. All rights reserved.</p>
+      <p>All products are hemp-derived and federally compliant under the 2018 Farm Bill (&lt;0.3% Δ-9 THC by dry weight). These statements have not been evaluated by the FDA. Products are not intended to diagnose, treat, cure, or prevent any disease. Do not operate vehicles or machinery while using.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function confirmAge() {
+    localStorage.setItem('gg_age_ok', '1');
+    document.getElementById('ageGate').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  // Scroll reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

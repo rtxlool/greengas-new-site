@@ -1,0 +1,145 @@
+{
+  "source": "https://greengashemp.me",
+  "scraped_at": "2026-05-18",
+  "brand": {
+    "name": "GreenGas Hemp",
+    "tagline_current": "not your father's hemp",
+    "promo_current": "Join the Gas Fam today for 20% off your first purchase",
+    "contact": {
+      "email": "Service@GreenGasHemp.com",
+      "phone": "(443) 993-4385"
+    },
+    "programs": ["Medical/Veteran Discount Program"],
+    "compliance": [
+      "All products lab tested for safety and compliance",
+      "21+ age restriction",
+      "FDA disclaimer present",
+      "COAs published (currently behind a single Google Drive link)"
+    ]
+  },
+  "categories": [
+    {
+      "slug": "indoor-exotic-flower",
+      "label": "Indoor Exotic Flower",
+      "tier": "mid",
+      "products": [
+        {"name": "Nightmare OG", "price": 30.00, "size": "1/8oz", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3541.jpg", "in_stock": null},
+        {"name": "Blue Zushi", "price": 30.00, "size": "1/8oz", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3539.jpg", "in_stock": null},
+        {"name": "Watermelon MimosaZ", "price": 30.00, "size": "1/8oz", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3540.jpg", "in_stock": null, "notes": "duplicate '(Copy)' showing in live catalog"},
+        {"name": "Piña Colada", "price": 30.00, "size": "1/8oz", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/Screenshot-2026-05-03-at-9.36.19-PM.png", "in_stock": null},
+        {"name": "Blackout Cherry", "price": 30.00, "size": "1/8oz", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/Screenshot-2026-05-03-at-9.35.57-PM.png", "in_stock": null},
+        {"name": "Swazzle OG", "price": 30.00, "size": "1/8oz", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/IMG_3299.jpg", "in_stock": null, "rating": 5},
+        {"name": "Gooseberries", "price": 30.00, "size": "1/8oz", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/IMG_3298.jpg", "in_stock": null},
+        {"name": "M.O.B", "price": 30.00, "size": "1/8oz", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/Screenshot-2026-04-14-at-10.58.52-PM.png", "in_stock": null},
+        {"name": "Biggie Runtz", "price": 30.00, "size": "1/8oz", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/Screenshot-2026-04-14-at-10.58.24-PM.png", "in_stock": null}
+      ]
+    },
+    {
+      "slug": "greengas-reserve-flower",
+      "label": "Reserve Flower",
+      "tier": "top",
+      "blurb": "Small-batch from Greybeard's Garden — rich terpenes, top-shelf structure.",
+      "products": [
+        {"name": "Dante's Inferno", "price": 80.00, "size": "1/4oz Jar", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3537.jpg", "in_stock": null},
+        {"name": "Chimax", "price": 80.00, "size": "1/4oz Jar", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3538.jpg", "in_stock": null}
+      ]
+    },
+    {
+      "slug": "pre-rolls",
+      "label": "Pre Rolls",
+      "tier": "entry",
+      "products": [
+        {"name": "1.25g KingSize Pre Roll", "price": 10.00, "size": "1.25g", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3543.jpg", "in_stock": null}
+      ]
+    },
+    {
+      "slug": "on-the-go",
+      "label": "On the Go (Vape Carts)",
+      "tier": "vape",
+      "products": [
+        {"name": "ChopCheese 2.0 Live Resin Cart", "price": 30.00, "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/03/F0644251-ED1E-4D0B-9B22-32A41DD3B785-e1778110795700.jpg", "in_stock": true},
+        {"name": "Wedding Cake", "price": 10.00, "in_stock": false},
+        {"name": "White Runtz", "price": 10.00, "in_stock": false},
+        {"name": "Peanut Butter Breath", "price": 10.00, "in_stock": false},
+        {"name": "Strawberry Guavaz", "price": 10.00, "in_stock": false},
+        {"name": "Oreoz", "price": 10.00, "in_stock": false, "notes": "Shipping 04/23"},
+        {"name": "Girl Scout Cookies", "price": 10.00, "in_stock": false, "notes": "Shipping 04/23"}
+      ]
+    },
+    {
+      "slug": "live-resin",
+      "label": "BHO Live Resin",
+      "tier": "concentrate",
+      "products": [
+        {"name": "SVG OG", "price": 25.00, "size": "2g", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/Screenshot-2026-05-03-at-9.36.35-PM.png", "in_stock": false},
+        {"name": "Lemon Zest", "price": 25.00, "size": "2g", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/Screenshot-2026-05-03-at-9.36.47-PM.png", "in_stock": false},
+        {"name": "Girl Scout Cookie", "price": 25.00, "size": "2g", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/IMG_3256-rotated.jpeg", "in_stock": false},
+        {"name": "Lemon Dosi Live Resin Badder", "price": 25.00, "size": "2g Jar", "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/03/IMG_2647.jpg", "in_stock": false}
+      ]
+    },
+    {
+      "slug": "t1",
+      "label": "Tier 1 Hash Rosin",
+      "tier": "concentrate-premium",
+      "products": [
+        {"name": "Sour Gushers Hash Rosin", "price": 40.00, "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/Screenshot-2026-04-21-at-10.45.44-PM.png", "in_stock": false},
+        {"name": "Nam Wah Hash Rosin", "price": 40.00, "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/Screenshot-2026-04-21-at-10.46.02-PM.png", "in_stock": true},
+        {"name": "Apples & Bananas Hash Rosin", "price": 40.00, "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/5D60020F-77EE-4A1A-AB59-6BE0153FEA51.jpg", "in_stock": false},
+        {"name": "StrawNana Hash Rosin", "price": 40.00, "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/Screenshot-2026-04-21-at-10.46.16-PM.png", "in_stock": false}
+      ]
+    },
+    {
+      "slug": "rosintech-labs-hash-rosin",
+      "label": "RosinTech Labs Hash Rosin",
+      "tier": "concentrate-premium",
+      "products": [
+        {"name": "Garlic Cocktail", "price": 37.50, "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/03/9A745F5D-1D1F-421C-A222-45F063753658.jpeg", "in_stock": false},
+        {"name": "Orange Malt", "price": 37.50, "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/03/809DD3D3-4688-4E71-8C88-FFB2AA144CA9.jpeg", "in_stock": false}
+      ]
+    },
+    {
+      "slug": "edibles",
+      "label": "Edibles / Gas Snacks",
+      "tier": "edibles",
+      "products": [
+        {"name": "TropiChews", "price": 12.00, "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/02/E8C6CBF5-58EF-4D7D-B3BF-5258D5FB04D6.jpeg", "in_stock": null}
+      ]
+    },
+    {
+      "slug": "gas-gear",
+      "label": "Merch / Gear",
+      "tier": "merch",
+      "products": [
+        {"name": "GreenGas Branded Tumbler", "price": 40.00, "image": "https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/01/3A137AF8-1333-4DE5-9674-389ECC63C470.jpeg", "in_stock": null}
+      ]
+    },
+    {
+      "slug": "uncategorized",
+      "label": "Uncategorized (NEEDS HOME)",
+      "tier": "unsorted",
+      "notes": "These are currently published under 'Uncategorized' on the live site — looks unfinished. Most appear to be flower drops. Move into a proper category before launch.",
+      "products": [
+        {"name": "Lemon Tree", "price": 10.00, "notes": "Fruit Drop", "in_stock": false},
+        {"name": "Sour Diesel", "price": 10.00, "in_stock": false},
+        {"name": "OG Kush", "price": 10.00, "notes": "Shipping 04/23", "in_stock": false},
+        {"name": "White Razz", "price": 30.00, "in_stock": false},
+        {"name": "Cantaloupe Haze", "price": 10.00, "notes": "Fruit Drop", "in_stock": false},
+        {"name": "Stardawg Guava", "price": 10.00, "notes": "Fruit Drop", "in_stock": false},
+        {"name": "Lychee Breath", "price": 10.00, "notes": "Fruit Drop", "in_stock": false}
+      ]
+    }
+  ],
+  "ux_problems_observed": [
+    "~75% of catalog is out of stock with no clear restock dates surfaced on shop page",
+    "Product descriptions are blank — just category names repeated",
+    "Live 'Uncategorized' category exposed to customers — looks unfinished",
+    "Duplicate product visible: 'Watermelon MimosaZ 1/8oz (Copy)'",
+    "Multiple products share the same generic 'Media.webp' placeholder image",
+    "COAs locked behind one Google Drive link rather than per-product",
+    "Medical/Veteran discount buried under Terms & Conditions",
+    "No effect / strain-type / THCA% filters",
+    "No site search",
+    "No age gate on entry despite 21+ requirement",
+    "Comment section on homepage shows 'Loading Comments...' — non-functional"
+  ]
+}
