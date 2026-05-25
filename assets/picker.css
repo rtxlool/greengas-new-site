@@ -1,0 +1,188 @@
+/* =================================================================
+   STRAIN / OPTION PICKER MODAL
+   Loaded on any page that wants the popup picker.
+   Triggered by a click on any .pcard (handled in picker.js).
+   ================================================================= */
+
+.picker-modal {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(13,15,11,0.86);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: none;
+  align-items: center; justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+.picker-modal.open { display: flex; opacity: 1; }
+
+.picker-panel {
+  background: var(--paper, #F2EDDD);
+  color: var(--ink, #0D0F0B);
+  max-width: 900px; width: 100%;
+  max-height: 92vh; overflow-y: auto;
+  display: grid; grid-template-columns: 1fr;
+  border: 1px solid rgba(13,15,11,0.08);
+  position: relative;
+  transform: translateY(18px);
+  transition: transform 280ms ease;
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.5);
+}
+.picker-modal.open .picker-panel { transform: translateY(0); }
+@media (min-width: 720px){
+  .picker-panel { grid-template-columns: 1fr 1fr; max-height: 88vh; overflow-y: visible; }
+}
+
+.picker-img {
+  aspect-ratio: 1;
+  background: var(--ink-2, #1A1D16);
+  overflow: hidden;
+  position: relative;
+}
+.picker-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 200ms ease;
+}
+
+.picker-close {
+  position: absolute; top: 14px; right: 14px; z-index: 5;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 0; background: rgba(13,15,11,0.78); color: #F2EDDD;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 22px; line-height: 1;
+  transition: background 180ms ease;
+}
+.picker-close:hover { background: rgba(13,15,11,1); }
+
+.picker-body {
+  padding: 32px 28px 28px;
+  display: flex; flex-direction: column;
+}
+@media (min-width: 720px){
+  .picker-body { padding: 40px 36px 32px; }
+}
+
+.picker-cat {
+  font-family: 'Archivo', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--olive, #4A6825);
+  margin: 0 0 10px;
+}
+.picker-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 36px; letter-spacing: 0.01em;
+  text-transform: uppercase; line-height: 0.95;
+  margin: 0 0 18px;
+  color: var(--ink, #0D0F0B);
+}
+
+.picker-desc {
+  font-size: 15px; line-height: 1.6;
+  color: rgba(13,15,11,0.7);
+  margin: 0 0 26px;
+  min-height: 84px;
+}
+.picker-desc .lineage {
+  display: block;
+  font-family: 'Archivo', sans-serif;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; font-weight: 800;
+  color: var(--gold, #C19D57);
+  margin-bottom: 10px;
+}
+
+.picker-controls {
+  display: flex; flex-direction: column; gap: 16px;
+  margin-bottom: 24px;
+}
+.picker-row label {
+  display: block;
+  font-family: 'Archivo', sans-serif;
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(13,15,11,0.5);
+  margin-bottom: 8px;
+}
+.picker-row select {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--paper, #F2EDDD);
+  border: 1px solid var(--ink, #0D0F0B);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  color: var(--ink, #0D0F0B);
+  border-radius: 2px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='none' stroke='%230D0F0B' stroke-width='2' d='M1 1l5 5 5-5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 44px;
+}
+.picker-row select:focus { outline: 2px solid var(--gold, #C19D57); outline-offset: -1px; }
+
+.picker-row .qty {
+  display: flex; align-items: center;
+  border: 1px solid var(--ink, #0D0F0B);
+  border-radius: 2px;
+  width: fit-content;
+}
+.picker-row .qty button {
+  flex: 0 0 44px; height: 44px;
+  background: transparent;
+  border: 0;
+  font-size: 20px; font-weight: 700;
+  color: var(--ink, #0D0F0B);
+  cursor: pointer;
+  transition: background 160ms ease;
+}
+.picker-row .qty button:hover { background: var(--paper-2, #E6DFC6); }
+.picker-row .qty input {
+  width: 60px; border: 0; background: transparent;
+  text-align: center; height: 44px;
+  font-family: 'Anton', sans-serif; font-size: 20px;
+  color: var(--ink, #0D0F0B);
+  -moz-appearance: textfield;
+  border-left: 1px solid rgba(13,15,11,0.12);
+  border-right: 1px solid rgba(13,15,11,0.12);
+}
+.picker-row .qty input::-webkit-outer-spin-button,
+.picker-row .qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+.picker-foot {
+  margin-top: auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(13,15,11,0.12);
+}
+.picker-price {
+  font-family: 'Anton', sans-serif;
+  font-size: 32px; letter-spacing: 0.02em;
+  color: var(--ink, #0D0F0B);
+}
+.picker-add {
+  flex: 1; max-width: 240px;
+  padding: 16px 24px;
+  background: var(--ink, #0D0F0B); color: var(--paper, #F2EDDD);
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px; font-weight: 800;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  border: 0; border-radius: 2px;
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+.picker-add:hover { background: var(--olive, #4A6825); }
+.picker-add.added { background: var(--olive, #4A6825); }
+
+.picker-add.sold-out {
+  background: rgba(13,15,11,0.3);
+  cursor: not-allowed;
+  pointer-events: none;
+}

@@ -8,7 +8,8 @@
 <link rel="icon" type="image/png" href="assets/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/picker.css" />
 <style>
   :root {
     --paper:   #F2EDDD;   /* warm cream - main bg */
@@ -178,7 +179,10 @@
   .hero-eyebrow .est { color: var(--gold); }
 
   .slogan {
-    font-size: clamp(58px, 11vw, 168px);
+    font-family: 'Alfa Slab One', 'Anton', serif;
+    font-size: clamp(54px, 10vw, 156px);
+    line-height: 0.98;
+    letter-spacing: -0.01em;
     margin: 0;
     color: var(--paper);
   }
@@ -573,20 +577,6 @@
   </div>
 </section>
 
-<!-- GOLD TAGLINE BANNER -->
-<div class="banner">
-  <div class="banner-track">
-    <span>Not Your Father's Hemp</span><span class="dot"></span>
-    <span>Maryland-Based</span><span class="dot"></span>
-    <span>Lab-Tested Every Batch</span><span class="dot"></span>
-    <span>We Don't Deal in Mids</span><span class="dot"></span>
-    <span>Not Your Father's Hemp</span><span class="dot"></span>
-    <span>Maryland-Based</span><span class="dot"></span>
-    <span>Lab-Tested Every Batch</span><span class="dot"></span>
-    <span>We Don't Deal in Mids</span><span class="dot"></span>
-  </div>
-</div>
-
 <!-- INTRO / FOUNDER NOTE -->
 <section class="intro">
   <div class="container intro-grid">
@@ -642,7 +632,7 @@
       <a href="shop.html" class="link">View Full Catalog →</a>
     </div>
     <div class="drops-grid">
-      <a href="product.html" class="pcard reveal">
+      <a href="product.html" class="pcard reveal" data-category="reserve" data-name="Dante's Inferno" data-price="80">
         <div class="ph">
           <span class="stock">In Stock</span>
           <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3537.jpg" alt="Dante's Inferno" loading="lazy" />
@@ -657,7 +647,7 @@
           </div>
         </div>
       </a>
-      <a href="product.html" class="pcard reveal">
+      <a href="product.html" class="pcard reveal" data-category="exotic" data-name="Blue Zushi" data-price="30">
         <div class="ph">
           <span class="stock">In Stock</span>
           <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/05/IMG_3539.jpg" alt="Blue Zushi" loading="lazy" />
@@ -672,14 +662,14 @@
           </div>
         </div>
       </a>
-      <a href="product.html" class="pcard reveal">
+      <a href="product.html" class="pcard reveal" data-category="rosin" data-name="Nam Wah Hash Rosin" data-price="40">
         <div class="ph">
           <span class="stock">In Stock</span>
           <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/04/Screenshot-2026-04-21-at-10.46.02-PM.png" alt="Nam Wah hash rosin" loading="lazy" />
         </div>
         <div class="body">
           <div class="cat">Tier 1 Rosin · 1g</div>
-          <h4>Nam Wah</h4>
+          <h4>Nam Wah Hash Rosin</h4>
           <p class="strain">Solventless · Tier 1</p>
           <div class="foot">
             <span class="price">$40</span>
@@ -687,7 +677,7 @@
           </div>
         </div>
       </a>
-      <a href="product.html" class="pcard reveal">
+      <a href="product.html" class="pcard reveal" data-category="vapes" data-name="ChopCheese 2.0 Live Resin Cart" data-price="30">
         <div class="ph">
           <span class="stock">In Stock</span>
           <img src="https://i0.wp.com/greengashemp.me/wp-content/uploads/2026/03/F0644251-ED1E-4D0B-9B22-32A41DD3B785-e1778110795700.jpg" alt="ChopCheese cart" loading="lazy" />
@@ -855,6 +845,9 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+
+<!-- STRAIN / OPTION PICKER -->
+<script src="assets/picker.js" defer></script>
 
 </body>
 </html>
