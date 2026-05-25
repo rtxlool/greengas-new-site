@@ -186,3 +186,65 @@
   cursor: not-allowed;
   pointer-events: none;
 }
+
+/* =================================================================
+   NOTIFY-ME MODAL (sold-out cards)
+   ================================================================= */
+
+.notify-modal .picker-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(13,15,11,0.15) 0%, rgba(13,15,11,0.55) 100%);
+  pointer-events: none;
+}
+.notify-modal .picker-img img {
+  filter: grayscale(35%) brightness(0.85);
+}
+.restock-badge {
+  position: absolute; top: 18px; left: 18px; z-index: 2;
+  background: var(--gold, #C19D57); color: var(--ink, #0D0F0B);
+  padding: 6px 12px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.notify-modal .picker-cat { color: var(--gold, #C19D57); }
+
+.picker-row input[type="email"] {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--paper, #F2EDDD);
+  border: 1px solid var(--ink, #0D0F0B);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  color: var(--ink, #0D0F0B);
+  border-radius: 2px;
+  transition: border-color 200ms ease;
+}
+.picker-row input[type="email"]:focus {
+  outline: 2px solid var(--gold, #C19D57);
+  outline-offset: -1px;
+}
+
+.notify-perk {
+  background: var(--paper-2, #E6DFC6);
+  border-left: 3px solid var(--olive, #4A6825);
+  padding: 14px 16px;
+  margin-bottom: 22px;
+  border-radius: 0 2px 2px 0;
+}
+.notify-perk strong {
+  display: block;
+  font-family: 'Anton', sans-serif;
+  font-size: 18px; letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--olive, #4A6825);
+  margin-bottom: 4px;
+}
+.notify-perk span {
+  display: block;
+  font-size: 13px; line-height: 1.5;
+  color: rgba(13,15,11,0.65);
+}

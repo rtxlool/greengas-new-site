@@ -70,7 +70,7 @@
   const CATEGORIES = {
     "reserve":      ["Dante's Inferno", "Chimax"],
     "exotic":       ["Nightmare OG", "Blue Zushi", "Watermelon MimosaZ", "Piña Colada", "Blackout Cherry", "Swazzle OG", "Gooseberries", "M.O.B", "Biggie Runtz"],
-    "vapes":        ["ChopCheese 2.0 Live Resin Cart", "Wedding Cake", "White Runtz", "Peanut Butter Breath", "Strawberry Guavaz", "Oreoz", "Girl Scout Cookies"],
+    "vapes":        ["Wedding Cake", "White Runtz", "Peanut Butter Breath", "Strawberry Guavaz", "Oreoz", "Girl Scout Cookies"],
     "rosin":        ["Sour Gushers Hash Rosin", "Nam Wah Hash Rosin", "Apples & Bananas Hash Rosin", "StrawNana Hash Rosin"],
     "live-resin":   ["SVG OG", "Lemon Zest", "Girl Scout Cookie", "Lemon Dosi Live Resin Badder"],
     "prerolls":     ["1.25g KingSize Pre Roll"],
@@ -126,6 +126,38 @@
         </div>
       </div>
     </div>
+
+    <div class="picker-modal notify-modal" id="notifyModal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="picker-panel">
+        <button class="picker-close" aria-label="Close" type="button">&times;</button>
+        <div class="picker-img">
+          <img id="notifyImg" src="" alt="" />
+          <div class="restock-badge">Out of Stock</div>
+        </div>
+        <div class="picker-body">
+          <p class="picker-cat">Restock Alert</p>
+          <h3 class="picker-name" id="notifyName"></h3>
+          <p class="picker-desc">
+            <span class="lineage">First in line</span>
+            Drop your email and we'll let you know the moment this strain is back on the shelf — usually 1–2 weeks out.
+          </p>
+          <div class="notify-perk">
+            <strong>+ 20% off your first order</strong>
+            <span>when you join the Gas Fam list. No spam, just restocks and rare drops.</span>
+          </div>
+          <div class="picker-controls">
+            <div class="picker-row">
+              <label for="notifyEmail">Email</label>
+              <input type="email" id="notifyEmail" placeholder="your@email.com" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="picker-foot">
+            <span></span>
+            <button class="picker-add" id="notifySubmit" type="button">Notify Me</button>
+          </div>
+        </div>
+      </div>
+    </div>
   `;
 
   function init() {
@@ -176,14 +208,17 @@
         if (n && i) currentImageMap[n] = i;
       });
 
-      // Build dropdown options
+      // Build dropdown options. If the card's name isn't in the strain list
+      // (e.g. the card represents a generic product like "Live Resin Cart"),
+      // default to the first strain in the category.
       const strains = (CATEGORIES[cat] && CATEGORIES[cat].length) ? CATEGORIES[cat] : [startName];
+      const effectiveStart = strains.includes(startName) ? startName : strains[0];
       strainSel.innerHTML = strains.map(s =>
-        `<option value="${s}"${s === startName ? ' selected' : ''}>${s}</option>`
+        `<option value="${s}"${s === effectiveStart ? ' selected' : ''}>${s}</option>`
       ).join('');
 
       catEl.textContent = catLabel;
-      updateStrain(startName || strains[0]);
+      updateStrain(effectiveStart);
 
       qtyInput.value = 1;
       addBtn.textContent = 'Add to Cart';
@@ -226,6 +261,52 @@
       });
     }
 
+    // -----------------------------------------------------------------
+    // NOTIFY-ME MODAL (sold-out cards)
+    // -----------------------------------------------------------------
+    const notifyModal  = document.getElementById('notifyModal');
+    const notifyImg    = document.getElementById('notifyImg');
+    const notifyName   = document.getElementById('notifyName');
+    const notifyEmail  = document.getElementById('notifyEmail');
+    const notifySubmit = document.getElementById('notifySubmit');
+
+    function openNotify(card) {
+      const name = (card.dataset.name || card.querySelector('h4')?.textContent || 'this strain').trim();
+      const imgSrc = card.querySelector('.ph img')?.src || '';
+      notifyName.textContent = name;
+      notifyImg.src = imgSrc;
+      notifyImg.alt = name;
+      notifyEmail.value = '';
+      notifySubmit.textContent = 'Notify Me';
+      notifySubmit.classList.remove('added');
+      notifyModal.classList.add('open');
+      notifyModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => notifyEmail.focus(), 100);
+    }
+
+    function closeNotify() {
+      notifyModal.classList.remove('open');
+      notifyModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    notifyModal.querySelector('.picker-close').addEventListener('click', closeNotify);
+    notifyModal.addEventListener('click', e => { if (e.target === notifyModal) closeNotify(); });
+    notifySubmit.addEventListener('click', () => {
+      const email = (notifyEmail.value || '').trim();
+      // Basic email shape check — preview only
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        notifyEmail.focus();
+        notifyEmail.style.borderColor = '#A24A22';
+        setTimeout(() => { notifyEmail.style.borderColor = ''; }, 1500);
+        return;
+      }
+      notifySubmit.textContent = "You're on the list ✓";
+      notifySubmit.classList.add('added');
+      setTimeout(closeNotify, 1100);
+    });
+
     // EVENT WIRING
     strainSel.addEventListener('change', e => updateStrain(e.target.value));
     qtyInput.addEventListener('input', updatePrice);
@@ -239,10 +320,12 @@
       updatePrice();
     });
 
-    document.querySelector('.picker-close').addEventListener('click', closePicker);
+    modal.querySelector('.picker-close').addEventListener('click', closePicker);
     modal.addEventListener('click', e => { if (e.target === modal) closePicker(); });
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && modal.classList.contains('open')) closePicker();
+      if (e.key !== 'Escape') return;
+      if (modal.classList.contains('open')) closePicker();
+      if (notifyModal.classList.contains('open')) closeNotify();
     });
 
     addBtn.addEventListener('click', () => {
@@ -253,13 +336,16 @@
     });
 
     // Hook every product card on the page.
-    // Whole-card click opens the picker (since product.html doesn't exist yet).
+    // Sold-out cards → notify-me modal. In-stock cards → strain picker.
     document.querySelectorAll('.pcard').forEach(card => {
       card.addEventListener('click', e => {
-        // Skip if a sold-out card was clicked and we want default behavior — for now, open the picker anyway
         e.preventDefault();
         e.stopPropagation();
-        openPicker(card);
+        if (card.classList.contains('sold-out')) {
+          openNotify(card);
+        } else {
+          openPicker(card);
+        }
       });
     });
   }
